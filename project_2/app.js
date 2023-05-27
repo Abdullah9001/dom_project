@@ -8,7 +8,7 @@ function main() {
   const output = document.getElementById("output");
 
   button.addEventListener("click", function () {
-    const bgColor = rgbColorGenerate();
+    const bgColor = hexaColorGenerate();
     bg.style.backgroundColor = bgColor;
     output.value = bgColor;
   });
