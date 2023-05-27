@@ -13,8 +13,8 @@ function main() {
 }
 
 function rgbColorGenerate() {
-  const red = Math.floor(Math.random() * 225) + 1;
-  const green = Math.floor(Math.random() * 225) + 1;
-  const blue = Math.floor(Math.random() * 225) + 1;
+  const red = Math.floor(Math.random() * 255) + 1;
+  const green = Math.floor(Math.random() * 255) + 1;
+  const blue = Math.floor(Math.random() * 255) + 1;
   return `rgb(${red}, ${green}, ${blue})`;
 }
