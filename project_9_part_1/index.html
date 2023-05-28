@@ -12,10 +12,12 @@
       <section class="section">
         <div class="section-header">
           <h3 class="section-title">Display Color</h3>
-          <button class="section-header-action">Random Color</button>
+          <button class="section-header-action" id="generate-random-color">
+            Random Color
+          </button>
         </div>
         <div class="divider"></div>
-        <div class="color-display"></div>
+        <div class="color-display" id="color-display"></div>
       </section>
 
       <section class="section">
@@ -32,12 +34,12 @@
                 type="radio"
                 name="color-mode"
                 checked
-                id="color-mode-box"
+                id="color-mode-hex"
               />
               <label for="color-mode-hex">Hex</label>
             </div>
             <div class="mode-input-group">
-              <input type="radio" name="color-mode" id="color-mode-box" />
+              <input type="radio" name="color-mode" id="color-mode-rgb" />
               <label for="color-mode-rgb">RGB</label>
             </div>
           </div>
@@ -47,8 +49,7 @@
             <label for="input-hex" class="lead">Hex </label>
             <input
               type="text"
-              value="#dddeee"
-              placeholder="#dddeee"
+              placeholder="dddeee"
               id="input-hex"
               class="text-input hex-input"
             />
@@ -58,7 +59,6 @@
             <label for="input-rgb" class="lead">Hex </label>
             <input
               type="text"
-              value="rgb(221, 222, 238)"
               placeholder="rgb(221, 222, 238)"
               id="input-rgb"
               class="text-input rgb-input"
@@ -73,7 +73,7 @@
               <div>
                 <div class="slider-label-group">
                   <p>Red</p>
-                  <p>221</p>
+                  <p id="color-slider-red-label">221</p>
                 </div>
                 <input
                   type="range"
@@ -89,7 +89,7 @@
               <div>
                 <div class="slider-label-group">
                   <p>Green</p>
-                  <p>222</p>
+                  <p id="color-slider-green-label">222</p>
                 </div>
                 <input
                   type="range"
@@ -105,7 +105,7 @@
               <div>
                 <div class="slider-label-group">
                   <p>Blue</p>
-                  <p>238</p>
+                  <p id="color-slider-blue-label">238</p>
                 </div>
                 <input
                   type="range"
@@ -121,5 +121,6 @@
         </div>
       </section>
     </div>
+    <script src="app.js"></script>
   </body>
 </html>
