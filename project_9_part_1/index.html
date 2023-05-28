@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Project 9</title>
+  </head>
+  <body>
+    <div class="container">
+      <section class="section">
+        <div class="section-header">
+          <h3 class="section-title">Display Color</h3>
+          <button class="section-header-action">Random Color</button>
+        </div>
+        <div class="divider"></div>
+        <div class="color-display"></div>
+      </section>
+
+      <section class="section">
+        <section class="section-header">
+          <h3 class="section-title">Change & Copy Color</h3>
+          <button class="section-header-action">Copy To Clipboard</button>
+        </section>
+        <div class="divider"></div>
+        <div class="select-copy-mode">
+          <p class="lead">Select Copy Mode</p>
+          <div class="mode-radio-group">
+            <div class="mode-input-group">
+              <input
+                type="radio"
+                name="color-mode"
+                checked
+                id="color-mode-box"
+              />
+              <label for="color-mode-hex">Hex</label>
+            </div>
+            <div class="mode-input-group">
+              <input type="radio" name="color-mode" id="color-mode-box" />
+              <label for="color-mode-rgb">RGB</label>
+            </div>
+          </div>
+        </div>
+        <div class="select-color-code">
+          <div class="hex-input-group">
+            <label for="input-hex" class="lead">Hex </label>
+            <input
+              type="text"
+              value="#dddeee"
+              placeholder="#dddeee"
+              id="input-hex"
+              class="text-input hex-input"
+            />
+            <div class="hex-icon">#</div>
+          </div>
+          <div class="rgb-input-group">
+            <label for="input-rgb" class="lead">Hex </label>
+            <input
+              type="text"
+              value="rgb(221, 222, 238)"
+              placeholder="rgb(221, 222, 238)"
+              id="input-rgb"
+              class="text-input rgb-input"
+              disabled
+            />
+          </div>
+        </div>
+        <div class="color-sliders">
+          <p class="lead">Adjust RGB Colors</p>
+          <div class="color-sliders-flex">
+            <div class="color-sliders-group">
+              <div>
+                <div class="slider-label-group">
+                  <p>Red</p>
+                  <p>221</p>
+                </div>
+                <input
+                  type="range"
+                  min="0"
+                  max="255"
+                  value="221"
+                  class="color-slider color-slider-red"
+                  id="color-slider-red"
+                />
+              </div>
+            </div>
+            <div class="color-sliders-group">
+              <div>
+                <div class="slider-label-group">
+                  <p>Green</p>
+                  <p>222</p>
+                </div>
+                <input
+                  type="range"
+                  min="0"
+                  max="255"
+                  value="222"
+                  class="color-slider color-slider-green"
+                  id="color-slider-green"
+                />
+              </div>
+            </div>
+            <div class="color-sliders-group">
+              <div>
+                <div class="slider-label-group">
+                  <p>Blue</p>
+                  <p>238</p>
+                </div>
+                <input
+                  type="range"
+                  min="0"
+                  max="255"
+                  value="238"
+                  class="color-slider color-slider-blue"
+                  id="color-slider-blue"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>
