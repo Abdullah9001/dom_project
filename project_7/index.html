@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Project 3</title>
+  </head>
+  <body>
+    <div class="hero" id="root">
+      <h1>Change The Background Color By Clicking The Following Button</h1>
+      <div class="label-group">
+        <label for="output">HEX Code</label>
+      </div>
+      <div class="input-group">
+        <div class="input-icon">#</div>
+        <input type="text" value="000000" id="output" class="output" />
+        <button class="copy" id="copy-color">Copy</button>
+      </div>
+      <div class="label-group">
+        <label for="output2">HEX Code</label>
+      </div>
+      <div class="input-group">
+        <input
+          type="text"
+          value="rgba(255, 255, 255, 1)"
+          id="output2"
+          class="output"
+          disabled
+        />
+        <button class="copy" id="copy-color2">Copy</button>
+      </div>
+
+      <button class="cng-color" id="cng-color" title="Copy To Clipboard">
+        Change Color
+      </button>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
