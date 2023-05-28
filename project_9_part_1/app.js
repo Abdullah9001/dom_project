@@ -12,16 +12,30 @@ function main() {
   const generateRandomColorBtn = document.getElementById(
     "generate-random-color"
   );
-  // const root = document.getElementById("root");
-  // const cngColor = document.getElementById("cng-color");
-  // const copyColor = document.getElementById("copy-color");
-  // const copyColor2 = document.getElementById("copy-color2");
-  // const output = document.getElementById("output");
-  // const output2 = document.getElementById("output2");
 
+  const colorModeHexInp = document.getElementById("input-hex");
+  const colorSliderRed = document.getElementById("color-slider-red");
+  const colorSliderGreen = document.getElementById("color-slider-green");
+  const colorSliderBlue = document.getElementById("color-slider-blue");
+
+  // event listeners
   generateRandomColorBtn.addEventListener(
     "click",
     handleGenerateRandomColorBtn
+  );
+
+  colorModeHexInp.addEventListener("keyup", handleColorModeHexInp);
+  colorSliderRed.addEventListener(
+    "change",
+    handleColorSliders(colorSliderRed, colorSliderGreen, colorSliderBlue)
+  );
+  colorSliderGreen.addEventListener(
+    "change",
+    handleColorSliders(colorSliderRed, colorSliderGreen, colorSliderBlue)
+  );
+  colorSliderBlue.addEventListener(
+    "change",
+    handleColorSliders(colorSliderRed, colorSliderGreen, colorSliderBlue)
   );
 
   // copyColor.addEventListener("click", function () {
@@ -49,23 +63,34 @@ function main() {
   //     alert("Your hexa color is not valid");
   //   }
   // });
-
-  // output.addEventListener("keyup", function (e) {
-  //   const color = e.target.value;
-  //   if (color) {
-  //     output.value = color.toUpperCase();
-  //     if (color && isValidHex(color)) {
-  //       root.style.backgroundColor = `#${color}`;
-  //       output2.value = hexToRGB(color);
-  //     }
-  //   }
-  // });
 }
 
 // even handler
 function handleGenerateRandomColorBtn() {
   const color = generateColorDecimal();
   updateColorCodeToDom(color);
+}
+
+function handleColorModeHexInp(e) {
+  const hexColor = e.target.value;
+  if (hexColor) {
+    this.value = hexColor.toUpperCase();
+    if (isValidHex(hexColor)) {
+      const color = hexToDecimalColors(hexColor);
+      updateColorCodeToDom(color);
+    }
+  }
+}
+
+function handleColorSliders(colorSliderRed, colorSliderGreen, colorSliderBlue) {
+  return function () {
+    const color = {
+      red: parseInt(colorSliderRed.value),
+      green: parseInt(colorSliderGreen.value),
+      blue: parseInt(colorSliderBlue.value),
+    };
+    updateColorCodeToDom(color);
+  };
 }
 
 // DOM functions
@@ -91,9 +116,11 @@ function updateColorCodeToDom(color) {
   const hexColor = generateHexColor(color);
   const rgbColor = generateRGBColor(color);
 
-  document.getElementById("color-display").style.backgroundColor = hexColor;
-  document.getElementById("color-mode-hex").value = hexColor;
-  document.getElementById("color-mode-rgb").value = rgbColor;
+  document.getElementById(
+    "color-display"
+  ).style.backgroundColor = `#${hexColor}`;
+  document.getElementById("input-hex").value = hexColor;
+  document.getElementById("input-rgb").value = rgbColor;
   document.getElementById("color-slider-red").value = color.red;
   document.getElementById("color-slider-red-label").innerText = color.red;
   document.getElementById("color-slider-green").value = color.green;
@@ -133,7 +160,7 @@ function generateHexColor({ red, green, blue }) {
     return hex.length === 1 ? `0${hex}` : hex;
   };
 
-  return `#${getTwoCode(red)}${getTwoCode(green)}${getTwoCode(
+  return `${getTwoCode(red)}${getTwoCode(green)}${getTwoCode(
     blue
   )}`.toUpperCase();
 }
@@ -154,7 +181,7 @@ function generateRGBColor({ red, green, blue }) {
  * @returns {object}
  */
 
-function hexToRGB(hex) {
+function hexToDecimalColors(hex) {
   const red = parseInt(hex.slice(0, 2), 16);
   const green = parseInt(hex.slice(2, 4), 16);
   const blue = parseInt(hex.slice(4), 16);
